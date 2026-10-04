@@ -1,0 +1,10 @@
+name="KRNR Ship Transfer Demo"
+version="1.0.0-demo"
+tags={"Utilities" "Military"}
+dependencies={
+	"Kaiserreich"
+	"Kaiserreich Naval Rework"
+}
+supported_version="1.19.*"
+# 改成你机器上 KRNR_Ship_Transfer_Demo 文件夹的实际绝对路径（用正斜杠）
+path="C:/Users/YOUR_NAME/Documents/Paradox Interactive/Hearts of Iron IV/mod/KRNR_Ship_Transfer_Demo"

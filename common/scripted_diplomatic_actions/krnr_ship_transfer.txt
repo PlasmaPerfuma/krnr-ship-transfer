@@ -1,0 +1,49 @@
+scripted_diplomatic_actions = {
+    krnr_ship_transfer = {
+        visible = { ROOT = { is_ai = no NOT = { has_war_with = PREV } } }
+        selectable = {
+            if = { limit = { ROOT = { NOT = { has_navy_size = { size > 0 } } } } custom_trigger_tooltip = { tooltip = KRNR_NO_SHIPS_TOOLTIP always = no } }
+            else = { custom_trigger_tooltip = { tooltip = KRNR_SHIP_TRANSFER_TOOLTIP always = yes } }
+        }
+        can_be_sent = { ROOT = { is_ai = no has_navy_size = { size > 0 } } }
+
+        # krnr_mode: 0 = plain transfer by type/quantity, 1 = random mode,
+        # 2 = named TANGO mode. Modes 0 and 1 use the same per-type transfer,
+        # mode 2 pulls one specific ship by name.
+        complete_effect = {
+            ROOT = {
+                if = {
+                    limit = { check_variable = { krnr_mode = 2 } }
+                    if = { limit = { check_variable = { krnr_sub_qty > 0 } } transfer_ship = { prefer_name = "TANGO" type = submarine target = PREV } }
+                    else_if = { limit = { check_variable = { krnr_dd_qty > 0 } } transfer_ship = { prefer_name = "TANGO" type = destroyer target = PREV } }
+                    else_if = { limit = { check_variable = { krnr_cl_qty > 0 } } transfer_ship = { prefer_name = "TANGO" type = light_cruiser target = PREV } }
+                    else_if = { limit = { check_variable = { krnr_ca_qty > 0 } } transfer_ship = { prefer_name = "TANGO" type = heavy_cruiser target = PREV } }
+                    else_if = { limit = { check_variable = { krnr_bc_qty > 0 } } transfer_ship = { prefer_name = "TANGO" type = battle_cruiser target = PREV } }
+                    else_if = { limit = { check_variable = { krnr_bb_qty > 0 } } transfer_ship = { prefer_name = "TANGO" type = battleship target = PREV } }
+                    else_if = { limit = { check_variable = { krnr_cv_qty > 0 } } transfer_ship = { prefer_name = "TANGO" type = carrier target = PREV } }
+                    else_if = { limit = { check_variable = { krnr_support_qty > 0 } } transfer_ship = { prefer_name = "TANGO" type = support_ship target = PREV } }
+                }
+                else = {
+                    for_loop_effect = { start = 0 end = krnr_sub_qty transfer_ship = { type = submarine target = PREV } }
+                    for_loop_effect = { start = 0 end = krnr_dd_qty transfer_ship = { type = destroyer target = PREV } }
+                    for_loop_effect = { start = 0 end = krnr_cl_qty transfer_ship = { type = light_cruiser target = PREV } }
+                    for_loop_effect = { start = 0 end = krnr_ca_qty transfer_ship = { type = heavy_cruiser target = PREV } }
+                    for_loop_effect = { start = 0 end = krnr_bc_qty transfer_ship = { type = battle_cruiser target = PREV } }
+                    for_loop_effect = { start = 0 end = krnr_bb_qty transfer_ship = { type = battleship target = PREV } }
+                    for_loop_effect = { start = 0 end = krnr_cv_qty transfer_ship = { type = carrier target = PREV } }
+                    for_loop_effect = { start = 0 end = krnr_support_qty transfer_ship = { type = support_ship target = PREV } }
+                }
+
+                set_variable = { krnr_sub_qty = 0 } set_variable = { krnr_dd_qty = 0 }
+                set_variable = { krnr_cl_qty = 0 } set_variable = { krnr_ca_qty = 0 }
+                set_variable = { krnr_bc_qty = 0 } set_variable = { krnr_bb_qty = 0 }
+                set_variable = { krnr_cv_qty = 0 } set_variable = { krnr_support_qty = 0 }
+                set_variable = { krnr_mode = 0 }
+            }
+        }
+        send_scripted_gui = krnr_ship_transfer_GUI
+        requires_acceptance = no
+        can_be_accepted = { always = yes }
+        ai_desire = { base = -10 }
+    }
+}

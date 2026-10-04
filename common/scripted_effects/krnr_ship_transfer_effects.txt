@@ -1,0 +1,23 @@
+# Creates the transfer counters if they do not exist yet.
+# Data text such as [?ROOT.krnr_sub_qty] renders as empty when the variable is
+# missing, so the counters must exist (= 0) before the window is ever opened.
+# krnr_mode: 0 = plain transfer, 1 = random mode, 2 = named TANGO mode.
+
+krnr_ensure_transfer_vars = {
+	if = {
+		limit = { NOT = { has_variable = krnr_sub_qty } }
+		set_variable = { krnr_sub_qty = 0 }
+		set_variable = { krnr_dd_qty = 0 }
+		set_variable = { krnr_cl_qty = 0 }
+		set_variable = { krnr_ca_qty = 0 }
+		set_variable = { krnr_bc_qty = 0 }
+		set_variable = { krnr_bb_qty = 0 }
+		set_variable = { krnr_cv_qty = 0 }
+		set_variable = { krnr_support_qty = 0 }
+		set_variable = { krnr_mode = 0 }
+	}
+	if = {
+		limit = { NOT = { has_variable = krnr_mode } }
+		set_variable = { krnr_mode = 0 }
+	}
+}

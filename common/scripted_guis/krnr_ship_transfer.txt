@@ -1,0 +1,114 @@
+scripted_gui = {
+
+	krnr_ship_transfer_GUI = {
+		context_type = diplomatic_action
+		window_name = "KRNR_Ship_Transfer_GUI"
+
+		# No "dirty" variable on purpose: without it the window refreshes every
+		# tick, which is what keeps the amount boxes in sync with the variables.
+
+		# The two mode buttons are options, not actions. Each one has a normal
+		# (clickable) element and a "pressed" twin (frame = 1). The twins are
+		# clickable too, so clicking the active mode switches it back off.
+		triggers = {
+			Button_KRNR_RANDOM_visible = { NOT = { check_variable = { krnr_mode = 1 } } }
+			KRNR_RANDOM_ON_visible = { check_variable = { krnr_mode = 1 } }
+			Button_KRNR_NAMED_visible = { NOT = { check_variable = { krnr_mode = 2 } } }
+			KRNR_NAMED_ON_visible = { check_variable = { krnr_mode = 2 } }
+		}
+
+		effects = {
+
+			# ---------------- Submarine ----------------
+			Button_KRNR_SS_PLUS_click = { ROOT = { add_to_variable = { krnr_sub_qty = 1 } } }
+			Button_KRNR_SS_PLUS_control_click = { ROOT = { add_to_variable = { krnr_sub_qty = 5 } } }
+			Button_KRNR_SS_PLUS_shift_click = { ROOT = { add_to_variable = { krnr_sub_qty = 10 } } }
+			Button_KRNR_SS_MINUS_click = { ROOT = { add_to_variable = { krnr_sub_qty = -1 } if = { limit = { check_variable = { krnr_sub_qty < 0 } } set_variable = { krnr_sub_qty = 0 } } } }
+			Button_KRNR_SS_MINUS_control_click = { ROOT = { add_to_variable = { krnr_sub_qty = -5 } if = { limit = { check_variable = { krnr_sub_qty < 0 } } set_variable = { krnr_sub_qty = 0 } } } }
+			Button_KRNR_SS_MINUS_shift_click = { ROOT = { add_to_variable = { krnr_sub_qty = -10 } if = { limit = { check_variable = { krnr_sub_qty < 0 } } set_variable = { krnr_sub_qty = 0 } } } }
+
+			# ---------------- Destroyer ----------------
+			Button_KRNR_DD_PLUS_click = { ROOT = { add_to_variable = { krnr_dd_qty = 1 } } }
+			Button_KRNR_DD_PLUS_control_click = { ROOT = { add_to_variable = { krnr_dd_qty = 5 } } }
+			Button_KRNR_DD_PLUS_shift_click = { ROOT = { add_to_variable = { krnr_dd_qty = 10 } } }
+			Button_KRNR_DD_MINUS_click = { ROOT = { add_to_variable = { krnr_dd_qty = -1 } if = { limit = { check_variable = { krnr_dd_qty < 0 } } set_variable = { krnr_dd_qty = 0 } } } }
+			Button_KRNR_DD_MINUS_control_click = { ROOT = { add_to_variable = { krnr_dd_qty = -5 } if = { limit = { check_variable = { krnr_dd_qty < 0 } } set_variable = { krnr_dd_qty = 0 } } } }
+			Button_KRNR_DD_MINUS_shift_click = { ROOT = { add_to_variable = { krnr_dd_qty = -10 } if = { limit = { check_variable = { krnr_dd_qty < 0 } } set_variable = { krnr_dd_qty = 0 } } } }
+
+			# ---------------- Light cruiser ----------------
+			Button_KRNR_CL_PLUS_click = { ROOT = { add_to_variable = { krnr_cl_qty = 1 } } }
+			Button_KRNR_CL_PLUS_control_click = { ROOT = { add_to_variable = { krnr_cl_qty = 5 } } }
+			Button_KRNR_CL_PLUS_shift_click = { ROOT = { add_to_variable = { krnr_cl_qty = 10 } } }
+			Button_KRNR_CL_MINUS_click = { ROOT = { add_to_variable = { krnr_cl_qty = -1 } if = { limit = { check_variable = { krnr_cl_qty < 0 } } set_variable = { krnr_cl_qty = 0 } } } }
+			Button_KRNR_CL_MINUS_control_click = { ROOT = { add_to_variable = { krnr_cl_qty = -5 } if = { limit = { check_variable = { krnr_cl_qty < 0 } } set_variable = { krnr_cl_qty = 0 } } } }
+			Button_KRNR_CL_MINUS_shift_click = { ROOT = { add_to_variable = { krnr_cl_qty = -10 } if = { limit = { check_variable = { krnr_cl_qty < 0 } } set_variable = { krnr_cl_qty = 0 } } } }
+
+			# ---------------- Heavy cruiser ----------------
+			Button_KRNR_CA_PLUS_click = { ROOT = { add_to_variable = { krnr_ca_qty = 1 } } }
+			Button_KRNR_CA_PLUS_control_click = { ROOT = { add_to_variable = { krnr_ca_qty = 5 } } }
+			Button_KRNR_CA_PLUS_shift_click = { ROOT = { add_to_variable = { krnr_ca_qty = 10 } } }
+			Button_KRNR_CA_MINUS_click = { ROOT = { add_to_variable = { krnr_ca_qty = -1 } if = { limit = { check_variable = { krnr_ca_qty < 0 } } set_variable = { krnr_ca_qty = 0 } } } }
+			Button_KRNR_CA_MINUS_control_click = { ROOT = { add_to_variable = { krnr_ca_qty = -5 } if = { limit = { check_variable = { krnr_ca_qty < 0 } } set_variable = { krnr_ca_qty = 0 } } } }
+			Button_KRNR_CA_MINUS_shift_click = { ROOT = { add_to_variable = { krnr_ca_qty = -10 } if = { limit = { check_variable = { krnr_ca_qty < 0 } } set_variable = { krnr_ca_qty = 0 } } } }
+
+			# ---------------- Battlecruiser ----------------
+			Button_KRNR_BC_PLUS_click = { ROOT = { add_to_variable = { krnr_bc_qty = 1 } } }
+			Button_KRNR_BC_PLUS_control_click = { ROOT = { add_to_variable = { krnr_bc_qty = 5 } } }
+			Button_KRNR_BC_PLUS_shift_click = { ROOT = { add_to_variable = { krnr_bc_qty = 10 } } }
+			Button_KRNR_BC_MINUS_click = { ROOT = { add_to_variable = { krnr_bc_qty = -1 } if = { limit = { check_variable = { krnr_bc_qty < 0 } } set_variable = { krnr_bc_qty = 0 } } } }
+			Button_KRNR_BC_MINUS_control_click = { ROOT = { add_to_variable = { krnr_bc_qty = -5 } if = { limit = { check_variable = { krnr_bc_qty < 0 } } set_variable = { krnr_bc_qty = 0 } } } }
+			Button_KRNR_BC_MINUS_shift_click = { ROOT = { add_to_variable = { krnr_bc_qty = -10 } if = { limit = { check_variable = { krnr_bc_qty < 0 } } set_variable = { krnr_bc_qty = 0 } } } }
+
+			# ---------------- Battleship ----------------
+			Button_KRNR_BB_PLUS_click = { ROOT = { add_to_variable = { krnr_bb_qty = 1 } } }
+			Button_KRNR_BB_PLUS_control_click = { ROOT = { add_to_variable = { krnr_bb_qty = 5 } } }
+			Button_KRNR_BB_PLUS_shift_click = { ROOT = { add_to_variable = { krnr_bb_qty = 10 } } }
+			Button_KRNR_BB_MINUS_click = { ROOT = { add_to_variable = { krnr_bb_qty = -1 } if = { limit = { check_variable = { krnr_bb_qty < 0 } } set_variable = { krnr_bb_qty = 0 } } } }
+			Button_KRNR_BB_MINUS_control_click = { ROOT = { add_to_variable = { krnr_bb_qty = -5 } if = { limit = { check_variable = { krnr_bb_qty < 0 } } set_variable = { krnr_bb_qty = 0 } } } }
+			Button_KRNR_BB_MINUS_shift_click = { ROOT = { add_to_variable = { krnr_bb_qty = -10 } if = { limit = { check_variable = { krnr_bb_qty < 0 } } set_variable = { krnr_bb_qty = 0 } } } }
+
+			# ---------------- Carrier ----------------
+			Button_KRNR_CV_PLUS_click = { ROOT = { add_to_variable = { krnr_cv_qty = 1 } } }
+			Button_KRNR_CV_PLUS_control_click = { ROOT = { add_to_variable = { krnr_cv_qty = 5 } } }
+			Button_KRNR_CV_PLUS_shift_click = { ROOT = { add_to_variable = { krnr_cv_qty = 10 } } }
+			Button_KRNR_CV_MINUS_click = { ROOT = { add_to_variable = { krnr_cv_qty = -1 } if = { limit = { check_variable = { krnr_cv_qty < 0 } } set_variable = { krnr_cv_qty = 0 } } } }
+			Button_KRNR_CV_MINUS_control_click = { ROOT = { add_to_variable = { krnr_cv_qty = -5 } if = { limit = { check_variable = { krnr_cv_qty < 0 } } set_variable = { krnr_cv_qty = 0 } } } }
+			Button_KRNR_CV_MINUS_shift_click = { ROOT = { add_to_variable = { krnr_cv_qty = -10 } if = { limit = { check_variable = { krnr_cv_qty < 0 } } set_variable = { krnr_cv_qty = 0 } } } }
+
+			# ---------------- Support ship ----------------
+			Button_KRNR_SUPPORT_PLUS_click = { ROOT = { add_to_variable = { krnr_support_qty = 1 } } }
+			Button_KRNR_SUPPORT_PLUS_control_click = { ROOT = { add_to_variable = { krnr_support_qty = 5 } } }
+			Button_KRNR_SUPPORT_PLUS_shift_click = { ROOT = { add_to_variable = { krnr_support_qty = 10 } } }
+			Button_KRNR_SUPPORT_MINUS_click = { ROOT = { add_to_variable = { krnr_support_qty = -1 } if = { limit = { check_variable = { krnr_support_qty < 0 } } set_variable = { krnr_support_qty = 0 } } } }
+			Button_KRNR_SUPPORT_MINUS_control_click = { ROOT = { add_to_variable = { krnr_support_qty = -5 } if = { limit = { check_variable = { krnr_support_qty < 0 } } set_variable = { krnr_support_qty = 0 } } } }
+			Button_KRNR_SUPPORT_MINUS_shift_click = { ROOT = { add_to_variable = { krnr_support_qty = -10 } if = { limit = { check_variable = { krnr_support_qty < 0 } } set_variable = { krnr_support_qty = 0 } } } }
+
+			# ---------------- Mode options ----------------
+			# Click an inactive mode -> activate it. Click the active mode -> back to plain.
+			Button_KRNR_RANDOM_click = {
+				ROOT = {
+					if = { limit = { check_variable = { krnr_mode = 1 } } set_variable = { krnr_mode = 0 } }
+					else = { set_variable = { krnr_mode = 1 } }
+				}
+			}
+			KRNR_RANDOM_ON_click = { ROOT = { set_variable = { krnr_mode = 0 } } }
+			Button_KRNR_NAMED_click = {
+				ROOT = {
+					if = { limit = { check_variable = { krnr_mode = 2 } } set_variable = { krnr_mode = 0 } }
+					else = { set_variable = { krnr_mode = 2 } }
+				}
+			}
+			KRNR_NAMED_ON_click = { ROOT = { set_variable = { krnr_mode = 0 } } }
+
+			Button_KRNR_RESET_click = {
+				ROOT = {
+					set_variable = { krnr_sub_qty = 0 } set_variable = { krnr_dd_qty = 0 }
+					set_variable = { krnr_cl_qty = 0 } set_variable = { krnr_ca_qty = 0 }
+					set_variable = { krnr_bc_qty = 0 } set_variable = { krnr_bb_qty = 0 }
+					set_variable = { krnr_cv_qty = 0 } set_variable = { krnr_support_qty = 0 }
+					set_variable = { krnr_mode = 0 }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,57 @@
+guiTypes = {
+    containerWindowType = {
+        name = "KRNR_Ship_Transfer_GUI"
+        position = { x = 0 y = 0 }
+        size = { width = 640 height = 396 }
+        moveable = no
+
+        instantTextboxType = { name = "KRNR_SS_LABEL" position = { x = 28 y = 24 } font = "hoi_16mbs" text = krnr_ss }
+        buttonType = { name = "Button_KRNR_SS_MINUS" position = { x = 260 y = 16 } quadTextureSprite = "GFX_naval_decrease_amount" pdx_tooltip = "KRNR_AMOUNT_MINUS_TOOLTIP" }
+        containerWindowType = { name = "KRNR_SS_AMOUNT" position = { x = 305 y = 16 } size = { width = 58 height = 32 } background = { name = "Background" quadTextureSprite = "GFX_generic_background" } instantTextboxType = { name = "KRNR_SS_VALUE" position = { x = 0 y = 6 } font = "hoi_18b" format = center maxWidth = 58 maxHeight = 20 fixedsize = yes text = "[?ROOT.krnr_sub_qty]" } }
+        buttonType = { name = "Button_KRNR_SS_PLUS" position = { x = 375 y = 16 } quadTextureSprite = "GFX_naval_increase_amount" pdx_tooltip = "KRNR_AMOUNT_PLUS_TOOLTIP" }
+
+        instantTextboxType = { name = "KRNR_DD_LABEL" position = { x = 28 y = 66 } font = "hoi_16mbs" text = krnr_dd }
+        buttonType = { name = "Button_KRNR_DD_MINUS" position = { x = 260 y = 58 } quadTextureSprite = "GFX_naval_decrease_amount" pdx_tooltip = "KRNR_AMOUNT_MINUS_TOOLTIP" }
+        containerWindowType = { name = "KRNR_DD_AMOUNT" position = { x = 305 y = 58 } size = { width = 58 height = 32 } background = { name = "Background" quadTextureSprite = "GFX_generic_background" } instantTextboxType = { name = "KRNR_DD_VALUE" position = { x = 0 y = 6 } font = "hoi_18b" format = center maxWidth = 58 maxHeight = 20 fixedsize = yes text = "[?ROOT.krnr_dd_qty]" } }
+        buttonType = { name = "Button_KRNR_DD_PLUS" position = { x = 375 y = 58 } quadTextureSprite = "GFX_naval_increase_amount" pdx_tooltip = "KRNR_AMOUNT_PLUS_TOOLTIP" }
+
+        instantTextboxType = { name = "KRNR_CL_LABEL" position = { x = 28 y = 108 } font = "hoi_16mbs" text = krnr_cl }
+        buttonType = { name = "Button_KRNR_CL_MINUS" position = { x = 260 y = 100 } quadTextureSprite = "GFX_naval_decrease_amount" pdx_tooltip = "KRNR_AMOUNT_MINUS_TOOLTIP" }
+        containerWindowType = { name = "KRNR_CL_AMOUNT" position = { x = 305 y = 100 } size = { width = 58 height = 32 } background = { name = "Background" quadTextureSprite = "GFX_generic_background" } instantTextboxType = { name = "KRNR_CL_VALUE" position = { x = 0 y = 6 } font = "hoi_18b" format = center maxWidth = 58 maxHeight = 20 fixedsize = yes text = "[?ROOT.krnr_cl_qty]" } }
+        buttonType = { name = "Button_KRNR_CL_PLUS" position = { x = 375 y = 100 } quadTextureSprite = "GFX_naval_increase_amount" pdx_tooltip = "KRNR_AMOUNT_PLUS_TOOLTIP" }
+
+        instantTextboxType = { name = "KRNR_CA_LABEL" position = { x = 28 y = 150 } font = "hoi_16mbs" text = krnr_ca }
+        buttonType = { name = "Button_KRNR_CA_MINUS" position = { x = 260 y = 142 } quadTextureSprite = "GFX_naval_decrease_amount" pdx_tooltip = "KRNR_AMOUNT_MINUS_TOOLTIP" }
+        containerWindowType = { name = "KRNR_CA_AMOUNT" position = { x = 305 y = 142 } size = { width = 58 height = 32 } background = { name = "Background" quadTextureSprite = "GFX_generic_background" } instantTextboxType = { name = "KRNR_CA_VALUE" position = { x = 0 y = 6 } font = "hoi_18b" format = center maxWidth = 58 maxHeight = 20 fixedsize = yes text = "[?ROOT.krnr_ca_qty]" } }
+        buttonType = { name = "Button_KRNR_CA_PLUS" position = { x = 375 y = 142 } quadTextureSprite = "GFX_naval_increase_amount" pdx_tooltip = "KRNR_AMOUNT_PLUS_TOOLTIP" }
+
+        instantTextboxType = { name = "KRNR_BC_LABEL" position = { x = 28 y = 192 } font = "hoi_16mbs" text = krnr_bc }
+        buttonType = { name = "Button_KRNR_BC_MINUS" position = { x = 260 y = 184 } quadTextureSprite = "GFX_naval_decrease_amount" pdx_tooltip = "KRNR_AMOUNT_MINUS_TOOLTIP" }
+        containerWindowType = { name = "KRNR_BC_AMOUNT" position = { x = 305 y = 184 } size = { width = 58 height = 32 } background = { name = "Background" quadTextureSprite = "GFX_generic_background" } instantTextboxType = { name = "KRNR_BC_VALUE" position = { x = 0 y = 6 } font = "hoi_18b" format = center maxWidth = 58 maxHeight = 20 fixedsize = yes text = "[?ROOT.krnr_bc_qty]" } }
+        buttonType = { name = "Button_KRNR_BC_PLUS" position = { x = 375 y = 184 } quadTextureSprite = "GFX_naval_increase_amount" pdx_tooltip = "KRNR_AMOUNT_PLUS_TOOLTIP" }
+
+        instantTextboxType = { name = "KRNR_BB_LABEL" position = { x = 28 y = 234 } font = "hoi_16mbs" text = krnr_bb }
+        buttonType = { name = "Button_KRNR_BB_MINUS" position = { x = 260 y = 226 } quadTextureSprite = "GFX_naval_decrease_amount" pdx_tooltip = "KRNR_AMOUNT_MINUS_TOOLTIP" }
+        containerWindowType = { name = "KRNR_BB_AMOUNT" position = { x = 305 y = 226 } size = { width = 58 height = 32 } background = { name = "Background" quadTextureSprite = "GFX_generic_background" } instantTextboxType = { name = "KRNR_BB_VALUE" position = { x = 0 y = 6 } font = "hoi_18b" format = center maxWidth = 58 maxHeight = 20 fixedsize = yes text = "[?ROOT.krnr_bb_qty]" } }
+        buttonType = { name = "Button_KRNR_BB_PLUS" position = { x = 375 y = 226 } quadTextureSprite = "GFX_naval_increase_amount" pdx_tooltip = "KRNR_AMOUNT_PLUS_TOOLTIP" }
+
+        instantTextboxType = { name = "KRNR_CV_LABEL" position = { x = 28 y = 276 } font = "hoi_16mbs" text = krnr_cv }
+        buttonType = { name = "Button_KRNR_CV_MINUS" position = { x = 260 y = 268 } quadTextureSprite = "GFX_naval_decrease_amount" pdx_tooltip = "KRNR_AMOUNT_MINUS_TOOLTIP" }
+        containerWindowType = { name = "KRNR_CV_AMOUNT" position = { x = 305 y = 268 } size = { width = 58 height = 32 } background = { name = "Background" quadTextureSprite = "GFX_generic_background" } instantTextboxType = { name = "KRNR_CV_VALUE" position = { x = 0 y = 6 } font = "hoi_18b" format = center maxWidth = 58 maxHeight = 20 fixedsize = yes text = "[?ROOT.krnr_cv_qty]" } }
+        buttonType = { name = "Button_KRNR_CV_PLUS" position = { x = 375 y = 268 } quadTextureSprite = "GFX_naval_increase_amount" pdx_tooltip = "KRNR_AMOUNT_PLUS_TOOLTIP" }
+
+        instantTextboxType = { name = "KRNR_SUPPORT_LABEL" position = { x = 28 y = 318 } font = "hoi_16mbs" text = krnr_support }
+        buttonType = { name = "Button_KRNR_SUPPORT_MINUS" position = { x = 260 y = 310 } quadTextureSprite = "GFX_naval_decrease_amount" pdx_tooltip = "KRNR_AMOUNT_MINUS_TOOLTIP" }
+        containerWindowType = { name = "KRNR_SUPPORT_AMOUNT" position = { x = 305 y = 310 } size = { width = 58 height = 32 } background = { name = "Background" quadTextureSprite = "GFX_generic_background" } instantTextboxType = { name = "KRNR_SUPPORT_VALUE" position = { x = 0 y = 6 } font = "hoi_18b" format = center maxWidth = 58 maxHeight = 20 fixedsize = yes text = "[?ROOT.krnr_support_qty]" } }
+        buttonType = { name = "Button_KRNR_SUPPORT_PLUS" position = { x = 375 y = 310 } quadTextureSprite = "GFX_naval_increase_amount" pdx_tooltip = "KRNR_AMOUNT_PLUS_TOOLTIP" }
+
+        # Mode options. Each mode has an inactive button and a pressed twin
+        # (same sprite, frame = 1) that is swapped in while the mode is active.
+        # Both are clickable: the active one switches the mode back off.
+        buttonType = { name = "Button_KRNR_RANDOM" position = { x = 28 y = 352 } quadTextureSprite = "GFX_sort_button_100x29" buttonText = krnr_random buttonFont = "hoi_16mbs" pdx_tooltip = "KRNR_MODE_RANDOM_TOOLTIP" }
+        buttonType = { name = "KRNR_RANDOM_ON" position = { x = 28 y = 352 } quadTextureSprite = "GFX_sort_button_100x29" frame = 1 buttonText = krnr_random buttonFont = "hoi_16mbs" pdx_tooltip = "KRNR_MODE_ACTIVE_TOOLTIP" }
+        buttonType = { name = "Button_KRNR_NAMED" position = { x = 145 y = 352 } quadTextureSprite = "GFX_sort_button_100x29" buttonText = krnr_named buttonFont = "hoi_16mbs" pdx_tooltip = "KRNR_MODE_NAMED_TOOLTIP" }
+        buttonType = { name = "KRNR_NAMED_ON" position = { x = 145 y = 352 } quadTextureSprite = "GFX_sort_button_100x29" frame = 1 buttonText = krnr_named buttonFont = "hoi_16mbs" pdx_tooltip = "KRNR_MODE_ACTIVE_TOOLTIP" }
+        buttonType = { name = "Button_KRNR_RESET" position = { x = 262 y = 352 } quadTextureSprite = "GFX_sort_button_100x29" buttonText = krnr_reset buttonFont = "hoi_16mbs" }
+    }
+}

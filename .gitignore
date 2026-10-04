@@ -1,0 +1,11 @@
+# Windows / editor junk
+Thumbs.db
+Desktop.ini
+*.tmp
+*.log
+.vscode/
+.idea/
+
+# Packaging output
+*.zip
+dist/

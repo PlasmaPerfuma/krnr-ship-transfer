@@ -1,0 +1,19 @@
+on_actions = {
+
+	# New campaign: create the counters on day 0 so the window shows 0 right away.
+	on_startup = {
+		effect = {
+			every_country = {
+				krnr_ensure_transfer_vars = yes
+			}
+		}
+	}
+
+	# Safety net for saves that were created before the counters existed.
+	# This runs once per country; the guard makes it a no-op afterwards.
+	on_daily = {
+		effect = {
+			krnr_ensure_transfer_vars = yes
+		}
+	}
+}
